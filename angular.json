@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "realdealservies": {
+    "realdealservices": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -61,10 +61,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "realdealservies:build:production"
+              "buildTarget": "realdealservices:build:production"
             },
             "development": {
-              "buildTarget": "realdealservies:build:development"
+              "buildTarget": "realdealservices:build:development"
             }
           },
           "defaultConfiguration": "development"
