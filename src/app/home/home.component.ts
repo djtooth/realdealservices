@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NgOptimizedImage } from '@angular/common';
 
 interface ServiceTicket {
   //code: string;
@@ -25,7 +24,7 @@ interface Testimonial {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage],
+  imports: [CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
