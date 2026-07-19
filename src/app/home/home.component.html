@@ -1,0 +1,397 @@
+<style>
+  :host {
+    display: block;
+  }
+
+  .page {
+    overflow-x: hidden;
+  }
+
+  .wrap {
+    width: min(1120px, calc(100% - 1.5rem));
+    margin: 0 auto;
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(8px);
+  }
+
+  .header-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+
+  .realdeal-logo {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+  }
+
+  .wordmark {
+    display: inline-flex;
+    flex-direction: column;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .nav {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-left: auto;
+  }
+
+  .header-call {
+    margin-left: auto;
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .hero__headline {
+    font-size: clamp(2rem, 4.2vw, 3.2rem);
+    line-height: 1.1;
+  }
+
+  .hero__sub {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .hero__actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.25rem;
+  }
+
+  .hero__actions .btn {
+    min-width: 0;
+  }
+
+  .Emile {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 1000px;
+    margin: 1.25rem 0 0;
+    border-radius: 16px;
+  }
+
+  .ticket-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+
+  .ticket img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+
+  .cta-banner__inner,
+  .footer__grid {
+    display: grid;
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  .footer__grid {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  .footer__col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  @media (max-width: 900px) {
+    .header-row {
+      justify-content: center;
+    }
+
+    .nav {
+      order: 3;
+      width: 100%;
+      justify-content: center;
+      margin-left: 0;
+    }
+
+    .header-call {
+      margin-left: 0;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .ticket-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .footer__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .wrap {
+      width: min(100% - 1.25rem, 1120px);
+    }
+
+    .header-row {
+      gap: 0.5rem;
+      padding: 0.85rem 0;
+    }
+
+    .nav {
+      gap: 0.75rem;
+      font-size: 0.95rem;
+    }
+
+    .hero__headline {
+      font-size: clamp(1.7rem, 8vw, 2.4rem);
+    }
+
+    .hero__actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .hero__actions .btn {
+      width: 100%;
+    }
+
+    .ticket-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-banner__inner,
+    .footer__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer__col a,
+    .footer__col span {
+      word-break: break-word;
+    }
+  }
+</style>
+
+<div class="page">
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <div class="wrap header-row">
+      <img class="realdeal-logo" src="/images/Logo.png" alt="Real Deal Services logo" width="48" height="48" />
+      <a class="wordmark" href="#top">
+        <span class="wordmark__main">Real Deal</span>
+        <span class="wordmark__sub">SERVICES</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#services">Services</a>
+        <!-- <a href="#how-it-works">How it works</a>
+        <a href="#reviews">Reviews</a> -->
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="btn btn--ghost header-call" href="tel:+5126198843">
+        <span class="btn__label">(512) 619-8843</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow">Licensed &middot; Insured &middot; Local</p>
+          <h1 class="hero__headline">
+            Quality Services by Reliable Professionals
+          </h1>
+          <p class="hero__sub">
+            At Real Deal Services, we provide a wide range of services including lawn renovations, home repairs,
+             home improvements and tech support to ensure your home or office is always in top shape. 
+             Our dedicated team works efficiently to meet all your repair and improvement needs with professionalism.
+          </p>
+        <img class="Emile" src="/images/daman.jpg" alt="Emile" width="1000" height="auto" />
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#contact">Call the Real Deal Emile to get a free estimate</a>
+            <a class="btn btn--outline" href="mailto:realdealservicesatx@gmail.com">Send an email</a>
+          </div>
+        </div>
+        <!-- <div class="hero__visual" aria-hidden="true">
+          <svg class="hero__illustration" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="20" width="280" height="280" rx="8" class="illu__panel" />
+            <g class="illu__toolbox">
+              <rect x="70" y="150" width="180" height="100" rx="6" class="illu__box" />
+              <rect x="70" y="150" width="180" height="26" rx="6" class="illu__box-lid" />
+              <path d="M130 150 v-24 a10 10 0 0 1 10 -10 h20 a10 10 0 0 1 10 10 v24" class="illu__handle" />
+              <circle cx="105" cy="200" r="5" class="illu__rivet" />
+              <circle cx="215" cy="200" r="5" class="illu__rivet" />
+            </g>
+            <g class="illu__wrench">
+              <path d="M195 95 a18 18 0 1 1 -25.5 25.5 L110 180 l-14 14 -12 -12 14 -14 60 -59.5 a18 18 0 0 1 37.5 -13.5z" />
+            </g>
+            <g class="illu__spark">
+              <path d="M232 70 l6 16 16 6 -16 6 -6 16 -6 -16 -16 -6 16 -6z" />
+            </g>
+          </svg>
+
+          <div class="stamp">
+            <span class="stamp__line">100% Real Deal</span>
+            <span class="stamp__line stamp__line--small">no gimmicks &middot; no runaround</span>
+          </div>
+        </div> -->
+
+      </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="services" id="services">
+      <div class="wrap">        
+        <h2 class="section-title">Professional Handyman Services</h2>
+
+        <div class="ticket-grid">
+          <article class="ticket" *ngFor="let s of services" style="text-align: center;">
+            <img [src]="s.image" [alt]="s.title" width="300" height="168.75" />
+            <h3 class="ticket__title">{{ s.title }}</h3>
+            <p class="ticket__blurb">{{ s.blurb }}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+        <section class="hero">
+        <div class="Sample Pictures" aria-hidden="true">
+
+  <!-- <img src="/images/gardenbed.jpg" alt="Description" style="width: 500px;" data-full="/images/gardenbed.jpg" onclick="openLightbox(this)"> -->
+        <!-- <img class="DiningRoom" src="/images/diningroom.jpg" alt="Dining Room" width="300" height="auto" onclick="openModal(this.src)" />        
+        <img class="WaterFiltrationSystem" src="/images/WaterFiltrationSystem.jpg" alt="Water Filtration System" width="300" height="168.75" onclick="openModal(this.src)" />
+        <img class="Zeroscape" src="/images/zeroscape.jpg" alt="Zeroscape" width="300" height="auto" onclick="openModal(this.src)" />       
+        <img class="LaptopRepair" src="/images/laptoprepair.jpg" alt="Laptop Repair" width="300" height="auto" onclick="openModal(this.src)" /> -->
+
+        <!-- Image modal -->
+        <dialog id="image-modal" aria-label="Image preview">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+            <img id="image-modal-img" src="" alt="Preview" style="max-width:90vw;max-height:80vh;" />
+            <div>
+              <button type="button" onclick="document.getElementById('image-modal').close()">Close</button>
+            </div>
+          </div>
+        </dialog>
+
+        <script>
+          function openModal(src) {
+            var dialog = document.getElementById('image-modal');
+            var img = document.getElementById('image-modal-img');
+            if (!dialog) return;
+            img.src = src;
+            if (typeof dialog.showModal === 'function') {
+              dialog.showModal();
+            } else {
+              // fallback for browsers without <dialog> support
+              dialog.setAttribute('open','');
+            }
+          }
+        </script>
+          </div>
+          </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <!-- <section class="process" id="how-it-works">
+      <div class="wrap">
+        <p class="eyebrow eyebrow--on-dark">How it works</p>
+        <h2 class="section-title section-title--on-dark">Three steps. No back-and-forth.</h2>
+
+        <ol class="process__list">
+          <li class="process__step" *ngFor="let step of steps">
+            <span class="process__number">{{ step.number }}</span>
+            <div>
+              <h3 class="process__title">{{ step.title }}</h3>
+              <p class="process__blurb">{{ step.blurb }}</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section> -->
+
+    <!-- ===== REVIEWS ===== -->
+    <!-- <section class="reviews" id="reviews">
+      <div class="wrap">
+        <p class="eyebrow">Reviews</p>
+        <h2 class="section-title">What the neighborhood says</h2>
+
+        <div class="receipt-row">
+          <blockquote class="receipt" *ngFor="let t of testimonials">
+            <p class="receipt__quote">&ldquo;{{ t.quote }}&rdquo;</p>
+            <footer class="receipt__attr">
+              <span class="receipt__name">{{ t.name }}</span>
+              <span class="receipt__job">{{ t.job }}</span>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- ===== CTA BANNER ===== -->
+    <section class="cta-banner" id="contact">
+      <div class="wrap cta-banner__inner">
+        <div>
+          <h2 class="cta-banner__title">Let Real Deal Services Help You!</h2>
+          <p class="cta-banner__sub">Get expert help to meet your needs! Tell us about your vision or needs, and let Real Deal Services create a solution tailored to you!</p>
+        </div>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="tel:+15126198843">Call (512) 619-8843</a>
+          <a class="btn btn--outline btn--outline-light" href="mailto:hello&#64;realdealservices.example">Email us</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="wrap footer__grid">
+      <div>
+        <span class="wordmark wordmark--footer">
+          <span class="wordmark__main">Real Deal</span>
+          <span class="wordmark__sub">SERVICES</span>
+        </span>
+        <p class="footer__tagline">Real Deal Services has provided quality home improvement and tech-support services to families and businesses since 2017! Let us help you tackle those projects with ease and expertise.</p>
+      </div>
+
+      <div class="footer__col">
+        <h4>Services</h4>
+        <a href="#services" *ngFor="let s of services">{{ s.title }}</a>
+      </div>
+
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <a href="tel:+15126198843">(512) 619-8843</a>
+        <a href="mailto:realdealservicesatx&#64;gmail.com">realdealservicesatx&#64;gmail.com</a>
+        <span>Mon&ndash;Sat, 7am&ndash;6pm</span>
+      </div>
+    </div>
+
+    <div class="wrap footer__bottom">
+      <span>&copy; {{ year }} Real Deal Services. All rights reserved.</span>
+    </div>
+  </footer>
+
+</div>
