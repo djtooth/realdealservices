@@ -229,7 +229,7 @@
              home improvements and tech support to ensure your home or office is always in top shape. 
              Our dedicated team works efficiently to meet all your repair and improvement needs with professionalism.
           </p>
-        <img class="Emile" src="/images/daman.jpg" alt="Emile" width="1000" height="auto" />
+        <img class="Emile" src="/images/covers/daman.webp" alt="Emile" width="1000" height="auto" />
           <div class="hero__actions">
             <a class="btn btn--primary" href="#contact">Call the Real Deal Emile to get a free estimate</a>
             <a class="btn btn--outline" href="mailto:realdealservicesatx@gmail.com">Send an email</a>
@@ -267,51 +267,30 @@
       <div class="wrap">        
         <h2 class="section-title">Professional Handyman Services</h2>
 
+ 
         <div class="ticket-grid">
-          <article class="ticket" *ngFor="let s of services" style="text-align: center;">
-            <img [src]="s.image" [alt]="s.title" width="300" height="168.75" />
-            <h3 class="ticket__title">{{ s.title }}</h3>
-            <p class="ticket__blurb">{{ s.blurb }}</p>
+          <article
+            class="ticket"
+            *ngFor="let s of services"
+            tabindex="0"
+            role="button"
+            [attr.aria-label]="'View ' + s.title + ' photo gallery'"
+            (click)="openGallery(s)"
+            (keydown.enter)="openGallery(s)"
+            (keydown.space)="openGallery(s); $event.preventDefault()">
+            <img class="ticket__image" [src]="s.image" [alt]="s.title" width="400" height="220" loading="lazy">
+            <div class="ticket__body">
+              <div class="ticket__top">
+                <span class="ticket__perf" aria-hidden="true"></span>
+              </div>
+              <h3 class="ticket__title">{{ s.title }}</h3>
+              <p class="ticket__blurb">{{ s.blurb }}</p>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
-        <section class="hero">
-        <div class="Sample Pictures" aria-hidden="true">
-
-  <!-- <img src="/images/gardenbed.jpg" alt="Description" style="width: 500px;" data-full="/images/gardenbed.jpg" onclick="openLightbox(this)"> -->
-        <!-- <img class="DiningRoom" src="/images/diningroom.jpg" alt="Dining Room" width="300" height="auto" onclick="openModal(this.src)" />        
-        <img class="WaterFiltrationSystem" src="/images/WaterFiltrationSystem.jpg" alt="Water Filtration System" width="300" height="168.75" onclick="openModal(this.src)" />
-        <img class="Zeroscape" src="/images/zeroscape.jpg" alt="Zeroscape" width="300" height="auto" onclick="openModal(this.src)" />       
-        <img class="LaptopRepair" src="/images/laptoprepair.jpg" alt="Laptop Repair" width="300" height="auto" onclick="openModal(this.src)" /> -->
-
-        <!-- Image modal -->
-        <dialog id="image-modal" aria-label="Image preview">
-          <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
-            <img id="image-modal-img" src="" alt="Preview" style="max-width:90vw;max-height:80vh;" />
-            <div>
-              <button type="button" onclick="document.getElementById('image-modal').close()">Close</button>
-            </div>
-          </div>
-        </dialog>
-
-        <script>
-          function openModal(src) {
-            var dialog = document.getElementById('image-modal');
-            var img = document.getElementById('image-modal-img');
-            if (!dialog) return;
-            img.src = src;
-            if (typeof dialog.showModal === 'function') {
-              dialog.showModal();
-            } else {
-              // fallback for browsers without <dialog> support
-              dialog.setAttribute('open','');
-            }
-          }
-        </script>
-          </div>
-          </section>
 
     <!-- ===== HOW IT WORKS ===== -->
     <!-- <section class="process" id="how-it-works">
@@ -393,5 +372,64 @@
       <span>&copy; {{ year }} Real Deal Services. All rights reserved.</span>
     </div>
   </footer>
+  <!-- ===== GALLERY MODAL ===== -->
+  <div
+    class="gallery-overlay"
+    *ngIf="selectedService as svc"
+    (click)="closeGallery()"
+    (keydown)="onModalKeydown($event)"
+    tabindex="-1">
 
+    <div
+      class="gallery-modal"
+      role="dialog"
+      aria-modal="true"
+      [attr.aria-label]="svc.title + ' photo gallery'"
+      (click)="$event.stopPropagation()">
+
+      <button class="gallery-close" type="button" (click)="closeGallery()" aria-label="Close gallery">
+        &times;
+      </button>
+
+      <h3 class="gallery-title">{{ svc.title }}</h3>
+
+      <div class="gallery-stage">
+        <button
+          class="gallery-nav gallery-nav--prev"
+          type="button"
+          (click)="prevImage()"
+          [disabled]="svc.gallery.length < 2"
+          aria-label="Previous photo">
+          &#8249;
+        </button>
+
+        <img
+          class="gallery-photo"
+          [src]="svc.gallery[activeIndex]"
+          [alt]="svc.title + ' photo ' + (activeIndex + 1)">
+
+        <button
+          class="gallery-nav gallery-nav--next"
+          type="button"
+          (click)="nextImage()"
+          [disabled]="svc.gallery.length < 2"
+          aria-label="Next photo">
+          &#8250;
+        </button>
+      </div>
+
+      <div class="gallery-counter">{{ activeIndex + 1 }} / {{ svc.gallery.length }}</div>
+
+      <div class="gallery-thumbs">
+        <button
+          class="gallery-thumb"
+          type="button"
+          *ngFor="let img of svc.gallery; let i = index"
+          [class.gallery-thumb--active]="i === activeIndex"
+          (click)="activeIndex = i">
+          <img [src]="img" [alt]="svc.title + ' thumbnail ' + (i + 1)">
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

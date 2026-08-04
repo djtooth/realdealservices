@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface ServiceTicket {
-  //code: string;
   title: string;
   blurb: string;
   image: string;
+  gallery: string[];
 }
 
 interface WorkStep {
@@ -20,7 +20,6 @@ interface Testimonial {
   job: string;
 }
 
-
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -30,26 +29,34 @@ interface Testimonial {
 })
 export class HomeComponent {
   readonly services: ServiceTicket[] = [
-    {      
-      title: 'Home Renovations',
-      blurb: 'Kitchens, bathrooms, painting, and additions.',
-      image: '/images/diningroom.jpg'
-    },
-    {      
-      title: 'Handyman Services',
-      blurb: 'Drywall, fixtures, plumbing, flooring, minor and major repairs.',
-      image: '/images/WaterFiltrationSystem.jpg'
-    },
-    {      
-      title: 'Yardwork',
-      blurb: 'Mowing, cleanup, landscaping, seasonal jobs.',
-      image: '/images/zeroscape.jpg'
-    },
     
-    {      
+    {
+      title: 'Home Services',
+      blurb: 'Drywall, fixtures, plumbing, flooring, minor and major repairs.',
+      image: '/images/covers/bedroomred.webp',
+      gallery: [
+        '/images/Gallery/WaterFiltrationSystem.webp',
+        '/images/Gallery/bedroompurple.webp',
+        '/images/Gallery/closetpurple.webp',
+        '/images/Gallery/bedroomred.webp',
+        '/images/Gallery/closetred.webp',
+        '/images/Gallery/diningroom.webp',
+        '/images/Gallery/kitchenlighting2.webp',
+      ]
+    },
+    {
       title: 'Tech Support',
       blurb: 'Wi-Fi, Installations, Computer Repairs, Smart Systems.',
-      image: '/images/laptoprepair.jpg'
+      image: '/images/covers/workstations2.webp',
+      gallery: [
+        '/images/Gallery/laptoppaste.webp',
+        '/images/Gallery/laptoprepair.webp',
+        '/images/Gallery/customkeyboard.webp',
+        '/images/Gallery/workstations3.webp',
+        '/images/Gallery/workstations.webp',
+        '/images/Gallery/workstations2.webp',
+        '/images/Gallery/damanopenworkstation.webp'
+      ]
     }
   ];
 
@@ -89,9 +96,43 @@ export class HomeComponent {
     }
   ];
 
-
-
-  
-
   readonly year = new Date().getFullYear();
+
+  /** Currently open gallery, or null when the modal is closed. */
+  selectedService: ServiceTicket | null = null;
+  activeIndex = 0;
+
+  openGallery(service: ServiceTicket): void {
+    this.selectedService = service;
+    this.activeIndex = 0;
+  }
+
+  closeGallery(): void {
+    this.selectedService = null;
+  }
+
+  nextImage(): void {
+    if (!this.selectedService) { return; }
+    this.activeIndex = (this.activeIndex + 1) % this.selectedService.gallery.length;
+  }
+
+  prevImage(): void {
+    if (!this.selectedService) { return; }
+    const total = this.selectedService.gallery.length;
+    this.activeIndex = (this.activeIndex - 1 + total) % total;
+  }
+
+  onModalKeydown(event: KeyboardEvent): void {
+    switch (event.key) {
+      case 'Escape':
+        this.closeGallery();
+        break;
+      case 'ArrowRight':
+        this.nextImage();
+        break;
+      case 'ArrowLeft':
+        this.prevImage();
+        break;
+    }
+  }
 }
