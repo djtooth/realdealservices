@@ -203,8 +203,8 @@
       </a>
       <nav class="nav" aria-label="Primary">
         <a href="#services">Services</a>
-        <!-- <a href="#how-it-works">How it works</a>
-        <a href="#reviews">Reviews</a> -->
+        <!-- <a href="#how-it-works">How it works</a> -->
+        <a href="#reviews">Reviews</a> 
         <a href="#contact">Contact</a>
       </nav>
 
@@ -231,34 +231,11 @@
           </p>
         <img class="Emile" src="/images/covers/daman.webp" alt="Emile" width="1000" height="auto" />
           <div class="hero__actions">
-            <a class="btn btn--primary" href="#contact">Call the Real Deal Emile to get a free estimate</a>
-            <a class="btn btn--outline" href="mailto:realdealservicesatx@gmail.com">Send an email</a>
+            <a class="btn btn--primary" href="#contact">Call Real Deal Emile for a free estimate</a>
+            <a class="btn btn--outline" [href]="requestFormUrl" target="_blank" rel="noopener">Send a Work Request &nearr;</a>
+            <!-- <a class="btn btn--outline" href="mailto:realdealservicesatx@gmail.com">Send a Email</a> -->
           </div>
         </div>
-        <!-- <div class="hero__visual" aria-hidden="true">
-          <svg class="hero__illustration" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
-            <rect x="20" y="20" width="280" height="280" rx="8" class="illu__panel" />
-            <g class="illu__toolbox">
-              <rect x="70" y="150" width="180" height="100" rx="6" class="illu__box" />
-              <rect x="70" y="150" width="180" height="26" rx="6" class="illu__box-lid" />
-              <path d="M130 150 v-24 a10 10 0 0 1 10 -10 h20 a10 10 0 0 1 10 10 v24" class="illu__handle" />
-              <circle cx="105" cy="200" r="5" class="illu__rivet" />
-              <circle cx="215" cy="200" r="5" class="illu__rivet" />
-            </g>
-            <g class="illu__wrench">
-              <path d="M195 95 a18 18 0 1 1 -25.5 25.5 L110 180 l-14 14 -12 -12 14 -14 60 -59.5 a18 18 0 0 1 37.5 -13.5z" />
-            </g>
-            <g class="illu__spark">
-              <path d="M232 70 l6 16 16 6 -16 6 -6 16 -6 -16 -16 -6 16 -6z" />
-            </g>
-          </svg>
-
-          <div class="stamp">
-            <span class="stamp__line">100% Real Deal</span>
-            <span class="stamp__line stamp__line--small">no gimmicks &middot; no runaround</span>
-          </div>
-        </div> -->
-
       </div>
     </section>
 
@@ -311,22 +288,19 @@
     </section> -->
 
     <!-- ===== REVIEWS ===== -->
-    <!-- <section class="reviews" id="reviews">
+     <section class="reviews" id="reviews">
       <div class="wrap">
         <p class="eyebrow">Reviews</p>
-        <h2 class="section-title">What the neighborhood says</h2>
-
         <div class="receipt-row">
           <blockquote class="receipt" *ngFor="let t of testimonials">
-            <p class="receipt__quote">&ldquo;{{ t.quote }}&rdquo;</p>
+             <p class="receipt__quote">&ldquo;{{ t.quote }}&rdquo;</p> 
             <footer class="receipt__attr">
               <span class="receipt__name">{{ t.name }}</span>
-              <span class="receipt__job">{{ t.job }}</span>
             </footer>
           </blockquote>
         </div>
       </div>
-    </section> -->
+    </section> 
 
     <!-- ===== CTA BANNER ===== -->
     <section class="cta-banner" id="contact">
@@ -335,7 +309,8 @@
           <h2 class="cta-banner__title">Let Real Deal Services Help You!</h2>
           <p class="cta-banner__sub">Get expert help to meet your needs! Tell us about your vision or needs, and let Real Deal Services create a solution tailored to you!</p>
         </div>
-        <div class="hero__actions">
+        <div class="hero__actions">          
+          <a class="btn btn--outline btn--outline-light" [href]="requestFormUrl" target="_blank" rel="noopener">Request work &nearr;</a>
           <a class="btn btn--primary" href="tel:+15126198843">Call (512) 619-8843</a>
           <a class="btn btn--outline btn--outline-light" href="mailto:realdealservicesatx&#64;gmail.com">Email us</a>
         </div>
@@ -359,6 +334,8 @@
         <h4>Services</h4>
         <a href="#services" *ngFor="let s of services">{{ s.title }}</a>
       </div>
+
+      
 
       <div class="footer__col">
         <h4>Contact</h4>

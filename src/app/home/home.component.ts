@@ -17,7 +17,6 @@ interface WorkStep {
 interface Testimonial {
   quote: string;
   name: string;
-  job: string;
 }
 
 @Component({
@@ -80,23 +79,26 @@ export class HomeComponent {
 
   readonly testimonials: Testimonial[] = [
     {
-      quote: 'They repainted the whole first floor and fixed the laptop I\u2019d given up on, same week. Didn\u2019t know that was one company.',
-      name: 'J. Alvarez',
-      job: 'Homeowner'
+      quote: 'Emile went above and beyond expectations.  He quickly identified my wi-fi problem and was super knowledgeable about how to remedy it.  He resolved the issue easily.  He was so nice and friendly and easy to work with.  I would highly recommend Emile.',
+      name: 'Janice L.'
     },
     {
-      quote: 'No callbacks, no surprise charges. Told me what it\u2019d cost and that\u2019s what it cost.',
-      name: 'D. Whitfield',
-      job: 'Homeowner'
+      quote: 'Emile did an outstanding job! My yard has never looked this good. He really went above and beyond what was asked and expected. I have researched a ton of services & none complete the job this thoroughly. Looking forward to working with him again in the near future',
+      name: 'Frankie J.'
     },
     {
-      quote: 'Our office router setup and the broken cabinet hinges got handled on the same appointment. That\u2019s the whole pitch, really.',
-      name: 'M. Osei',
-      job: 'Small business owner'
+      quote: 'Emile was punctual, task-oriented and extremely efficient. I absolutely will recommend his services and he has a myriad of skills. Thanks so much again for building a massive bunk bed set and storage tower for my daughter’s room!',
+      name: 'Sarah R.'
+    },
+    {
+      quote: 'Emile was really fun and nice. Great personality. And he knows a ton about tech stuff. I was really happy with how well he solved the issues I was having with my smart home technology. Very knowledgable. ',
+      name: 'Kelley C.'
     }
   ];
 
   readonly year = new Date().getFullYear();
+
+   readonly requestFormUrl = 'https://docs.google.com/forms/d/1_kqtSjvhXnY1kUlH4EsRQub0TYARuH47s1Q0SUO-TY8/edit';
 
   /** Currently open gallery, or null when the modal is closed. */
   selectedService: ServiceTicket | null = null;
